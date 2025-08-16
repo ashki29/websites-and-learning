@@ -11,6 +11,36 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        /* Custom styles for the loader */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #f97316;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            flex-shrink: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -38,31 +68,37 @@
             </p>
         </section>
 
-        <!-- Map Section -->
+        <!-- Carousel Section -->
         <section class="bg-white p-6 sm:p-8 rounded-xl shadow-lg mb-16">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-6">
-                The Route
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center">
+                A Visual Taste of the Walk
             </h2>
-            <div class="flex flex-col md:flex-row gap-8 items-center">
-                <div class="md:w-1/2">
-                    <p class="text-gray-600 mb-4">
-                        Follow our curated route, which takes you from the charming streets of Sydenham to the bustling heart of Beckenham.
-                    </p>
-                    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
-                        <li><strong>Start:</strong> Kynd London Cafe</li>
-                        <li><strong>End:</strong> Josephine Kitchen</li>
-                        <li><strong>Total Distance:</strong> ~2.1 miles</li>
-                        <li><strong>Estimated Walk Time:</strong> ~46 minutes</li>
-                    </ul>
-                    <!-- Button to open Google Maps route in a new tab -->
-                    <a href="https://www.google.com/maps/dir/Kynd+London+Cafe,+44B+Newlands+Park,+London,+United+Kingdom/Ayla+Cafe,+204+Kent+House+Road,+Beckenham,+United+Kingdom/Loki+Coffee,+253+Beckenham+Road,+Beckenham,+United+Kingdom/Shotsmiths,+73+Beckenham+Road,+Beckenham,+United+Kingdom/Josephine+Kitchen,+324+Croydon+Road,+Beckenham,+United+Kingdom/data=!4m32!4m31!1m5!1m1!19sChIJ6em42MYBdkgRuhQE4jH2Bdw!2m2!1d-0.051508399999999996!2d51.422345799999995!1m5!1m1!19sChIJqV9ZDgABdkgROnS8gaPTIIw!2m2!1d-0.0450621!2d51.4166947!1m5!1m1!19sChIJp-hsawABdkgRbOK_WVopd5c!2m2!1d-0.0456815!2d51.4098614!1m5!1m1!19sChIJf9jbhrgBdkgRrFJ1P87C7AA!2m2!1d-0.039888599999999996!2d51.408623299999995!1m5!1m1!19sChIJQ7H3IvEBdkgRU5OWRmzvLG4!2m2!1d-0.036141!2d51.4034793!3e2" target="_blank" class="inline-block bg-amber-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-amber-600 transition-colors duration-300 shadow-md">
-                        View on Google Maps
-                    </a>
+            <div class="carousel-container rounded-xl shadow-md relative">
+                <div class="carousel-track">
+                    <!-- Carousel Slides -->
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/1200x800/d7e3e0/374151?text=Kynd+Cafe+Cozy+Interior" alt="Cozy interior of Kynd Cafe" class="w-full h-auto object-cover rounded-xl">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/1200x800/f8e9e1/374151?text=Ayla+Cafe+Artisan+Pastries" alt="Artisan pastries from Ayla Cafe" class="w-full h-auto object-cover rounded-xl">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/1200x800/fff7ed/374151?text=Loki+Coffee+Specialty+Pour" alt="Specialty pour-over coffee at Loki Coffee" class="w-full h-auto object-cover rounded-xl">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/1200x800/e0f2f1/374151?text=Shotsmiths+Barista+at+Work" alt="Barista at work at Shotsmiths" class="w-full h-auto object-cover rounded-xl">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://placehold.co/1200x800/f8e9e1/374151?text=Josephine+Kitchen+Relaxing+Vibe" alt="Relaxing atmosphere at Josephine Kitchen" class="w-full h-auto object-cover rounded-xl">
+                    </div>
                 </div>
-                <!-- Static map image as a visual representation of the route -->
-                <div class="md:w-1/2">
-                    <img src="https://placehold.co/600x400/fff7ed/2d3748?text=Map+of+Coffee+Walk" alt="Map of the coffee walk route" class="w-full h-auto rounded-xl shadow-md">
-                </div>
+                <!-- Carousel Navigation Buttons -->
+                <button id="prevBtn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-900 text-white p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity duration-300">
+                    &lsaquo;
+                </button>
+                <button id="nextBtn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-900 text-white p-2 rounded-full opacity-75 hover:opacity-100 transition-opacity duration-300">
+                    &rsaquo;
+                </button>
             </div>
         </section>
 
@@ -82,20 +118,18 @@
             <div class="bg-white p-6 rounded-xl shadow-lg">
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">Ayla Cafe</h3>
                 <p class="text-sm text-gray-500 mb-4">204 Kent House Rd, BR3 1JN</p>
-                <p class="text-gray-600 mb-4">A bustling hub with a great reputation. Known for its delicious food and fantastic coffee, this is a perfect mid-walk stop to recharge.</p>
+                <p class="text-gray-600 mb-4">A bustling hub with a great reputation. You can find their latest updates and photos on their TikTok!</p>
                 <p class="text-gray-700 font-medium mb-4">Rating: 4.7 Stars</p>
-                <!-- Ayla Cafe doesn't have a specific website, so linking to their Google Maps page is a good alternative. -->
-                <a href="https://maps.app.goo.gl/uXvG7uB7HnE5f8p77" target="_blank" class="text-amber-500 hover:text-amber-600 font-semibold transition-colors duration-300">View Ayla's location &rarr;</a>
+                <a href="https://www.tiktok.com/@aylacafe_" target="_blank" class="text-amber-500 hover:text-amber-600 font-semibold transition-colors duration-300">Visit Ayla's TikTok &rarr;</a>
             </div>
 
             <!-- Card 3: Loki Coffee -->
             <div class="bg-white p-6 rounded-xl shadow-lg">
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">Loki Coffee</h3>
                 <p class="text-sm text-gray-500 mb-4">253 Beckenham Rd, BR3 4RP</p>
-                <p class="text-gray-600 mb-4">A stylish and modern cafe that’s new to the scene. Be one of the first to check out their unique approach to specialty coffee and fresh bakes.</p>
+                <p class="text-gray-600 mb-4">A stylish and modern cafe that’s new to the scene. Be sure to check out their Instagram for photos of their latest specialty coffees!</p>
                 <p class="text-gray-700 font-medium mb-4">Rating: 4.9 Stars</p>
-                <!-- Loki Coffee doesn't have a specific website, so this is a placeholder link -->
-                <a href="#" class="text-amber-500 hover:text-amber-600 font-semibold transition-colors duration-300">More Info &rarr;</a>
+                <a href="https://www.instagram.com/loki_coffee/" target="_blank" class="text-amber-500 hover:text-amber-600 font-semibold transition-colors duration-300">Visit Loki's Instagram &rarr;</a>
             </div>
 
             <!-- Card 4: Shotsmiths -->
@@ -118,6 +152,40 @@
 
         </section>
 
+        <!-- New Gemini API Feature Section -->
+        <section class="mt-16 bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center">
+                ✨ Generate a Review ✨
+            </h2>
+            <div class="max-w-xl mx-auto">
+                <p class="text-gray-600 mb-4 text-center">
+                    Tell us a coffee shop and a keyword, and we'll craft a custom review for you!
+                </p>
+                <div class="space-y-4">
+                    <div>
+                        <label for="coffeeShopName" class="block text-sm font-medium text-gray-700">Coffee Shop Name</label>
+                        <input type="text" id="coffeeShopName" placeholder="e.g., Kynd London Cafe" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="reviewKeyword" class="block text-sm font-medium text-gray-700">Review Keyword</label>
+                        <input type="text" id="reviewKeyword" placeholder="e.g., cozy, great latte, friendly staff" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm">
+                    </div>
+                    <button id="generateButton" class="w-full inline-flex items-center justify-center bg-amber-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-amber-600 transition-colors duration-300 shadow-md">
+                        Generate Review
+                    </button>
+                    <div id="loadingIndicator" class="hidden justify-center items-center">
+                        <div class="loader"></div>
+                    </div>
+                    <div id="reviewOutput" class="mt-4 p-4 rounded-md bg-amber-50 text-amber-900 hidden">
+                        <!-- Review content will be inserted here -->
+                    </div>
+                    <div id="errorOutput" class="mt-4 p-4 rounded-md bg-red-100 text-red-700 hidden">
+                        <!-- Error messages will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -125,5 +193,130 @@
         <p>&copy; 2025 South London Coffee Quest. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript for carousel and Gemini API call -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Carousel Functionality
+            const carouselTrack = document.querySelector('.carousel-track');
+            const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const slideWidth = slides[0].getBoundingClientRect().width;
+
+            let currentIndex = 0;
+            let intervalId;
+
+            // Set up slides for smooth transitions
+            function setSlidePosition() {
+                slides.forEach((slide, index) => {
+                    slide.style.left = `${slideWidth * index}px`;
+                });
+            }
+
+            setSlidePosition();
+
+            function moveToSlide(track, targetIndex) {
+                track.style.transform = `translateX(-${slideWidth * targetIndex}px)`;
+                currentIndex = targetIndex;
+            }
+
+            function startAutoSlide() {
+                intervalId = setInterval(() => {
+                    let nextIndex = (currentIndex + 1) % slides.length;
+                    moveToSlide(carouselTrack, nextIndex);
+                }, 5000); // Change image every 5 seconds
+            }
+
+            function stopAutoSlide() {
+                clearInterval(intervalId);
+            }
+
+            // Button listeners
+            prevBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                let prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+                moveToSlide(carouselTrack, prevIndex);
+                startAutoSlide();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                let nextIndex = (currentIndex + 1) % slides.length;
+                moveToSlide(carouselTrack, nextIndex);
+                startAutoSlide();
+            });
+
+            // Start the automatic slide show on load
+            startAutoSlide();
+
+            // Gemini API Functionality
+            const generateButton = document.getElementById('generateButton');
+            const coffeeShopNameInput = document.getElementById('coffeeShopName');
+            const reviewKeywordInput = document.getElementById('reviewKeyword');
+            const reviewOutput = document.getElementById('reviewOutput');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const errorOutput = document.getElementById('errorOutput');
+
+            generateButton.addEventListener('click', async () => {
+                const coffeeShopName = coffeeShopNameInput.value.trim();
+                const reviewKeyword = reviewKeywordInput.value.trim();
+
+                // Simple validation
+                if (!coffeeShopName || !reviewKeyword) {
+                    errorOutput.textContent = 'Please enter both a coffee shop name and a review keyword.';
+                    errorOutput.classList.remove('hidden');
+                    reviewOutput.classList.add('hidden');
+                    return;
+                }
+
+                // Show loading indicator and hide previous output/errors
+                loadingIndicator.classList.remove('hidden');
+                loadingIndicator.classList.add('flex');
+                reviewOutput.classList.add('hidden');
+                errorOutput.classList.add('hidden');
+
+                const prompt = `Write a short, positive review (25 words max) for a coffee shop named "${coffeeShopName}", highlighting that it has a "${reviewKeyword}" atmosphere/product.`;
+
+                try {
+                    const apiKey = ""; // Canvas will provide this
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                    const payload = {
+                        contents: [{
+                            parts: [{
+                                text: prompt
+                            }]
+                        }]
+                    };
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(`API error: ${JSON.stringify(errorData)}`);
+                    }
+
+                    const result = await response.json();
+                    const generatedReview = result.candidates[0].content.parts[0].text;
+
+                    reviewOutput.textContent = generatedReview;
+                    reviewOutput.classList.remove('hidden');
+
+                } catch (error) {
+                    console.error('Failed to generate review:', error);
+                    errorOutput.textContent = `Error: Failed to generate review. Please try again later.`;
+                    errorOutput.classList.remove('hidden');
+                } finally {
+                    loadingIndicator.classList.add('hidden');
+                    loadingIndicator.classList.remove('flex');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
