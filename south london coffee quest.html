@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South London Coffee Quest</title>
+    <!-- Use Tailwind CSS for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Hero Section -->
+    <header class="bg-amber-100 py-16 px-4 sm:px-8 lg:px-16 text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+            South London Coffee Quest
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto">
+            A self-guided walking tour for coffee lovers in Sydenham and Beckenham.
+        </p>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container mx-auto px-4 py-12">
+
+        <!-- Introduction Section -->
+        <section class="text-center mb-16">
+            <h2 class="text-3xl font-semibold text-gray-900 mb-4">
+                Explore the Heart of the Local Coffee Scene
+            </h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Discover five unique and highly-rated coffee shops on a delightful 2.1-mile journey. This walk is designed to introduce you to the best of what the Sydenham and Beckenham areas have to offer, one delicious cup at a time.
+            </p>
+        </section>
+
+        <!-- Map Section -->
+        <section class="bg-white p-6 sm:p-8 rounded-xl shadow-lg mb-16">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">
+                The Route
+            </h2>
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-1/2">
+                    <p class="text-gray-600 mb-4">
+                        Follow our curated route, which takes you from the charming streets of Sydenham to the bustling heart of Beckenham.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                        <li><strong>Start:</strong> Kynd London Cafe</li>
+                        <li><strong>End:</strong> Josephine Kitchen</li>
+                        <li><strong>Total Distance:</strong> ~2.1 miles</li>
+                        <li><strong>Estimated Walk Time:</strong> ~46 minutes</li>
+                    </ul>
+                    <!-- Button to open Google Maps route in a new tab -->
+                    <a href="https://www.google.com/maps/dir/Kynd+London+Cafe,+44B+Newlands+Park,+London,+United+Kingdom/Ayla+Cafe,+204+Kent+House+Road,+Beckenham,+United+Kingdom/Loki+Coffee,+253+Beckenham+Road,+Beckenham,+United+Kingdom/Shotsmiths,+73+Beckenham+Road,+Beckenham,+United+Kingdom/Josephine+Kitchen,+324+Croydon+Road,+Beckenham,+United+Kingdom/data=!4m32!4m31!1m5!1m1!19sChIJ6em42MYBdkgRuhQE4jH2Bdw!2m2!1d-0.051508399999999996!2d51.422345799999995!1m5!1m1!19sChIJqV9ZDgABdkgROnS8gaPTIIw!2m2!1d-0.0450621!2d51.4166947!1m5!1m1!19sChIJp-hsawABdkgRbOK_WVopd5c!2m2!1d-0.0456815!2d51.4098614!1m5!1m1!19sChIJf9jbhrgBdkgRrFJ1P87C7AA!2m2!1d-0.039888599999999996!2d51.408623299999995!1m5!1m1!19sChIJQ7H3IvEBdkgRU5OWRmzvLG4!2m2!1d-0.036141!2d51.4034793!3e2" target="_blank" class="inline-block bg-amber-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-amber-600 transition-colors duration-300 shadow-md">
+                        View on Google Maps
+                    </a>
+                </div>
+                <!-- Static map image as a visual representation of the route -->
+                <div class="md:w-1/2">
+                    <img src="https://placehold.co/600x400/fff7ed/2d3748?text=Map+of+Coffee+Walk" alt="Map of the coffee walk route" class="w-full h-auto rounded-xl shadow-md">
+                </div>
+            </div>
+        </section>
+
+        <!-- Coffee Shop Cards Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card 1: Kynd London Cafe -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Kynd London Cafe</h3>
+                <p class="text-sm text-gray-500 mb-4">44B Newlands Park, SE26 5NF</p>
+                <p class="text-gray-600 mb-4">A true independent gem and a local favorite. This community-focused cafe offers a warm welcome and a great start to your walk with a focus on fresh, local ingredients.</p>
+                <p class="text-gray-700 font-medium mb-4">Rating: 4.8 Stars</p>
+                <a href="https://kyndlondon.carrd.co/" target="_blank" class="text-amber-500 hover:text-amber-600 font-semibold transition-colors duration-300">Visit Kynd &rarr;</a>
+            </div>
+
+            <!-- Card 2: Ayla Cafe -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Ayla Cafe</h3>
+                <p class="text-sm text-gray-500 mb-4">204 Kent House Rd, BR3 1JN</p>
+                <p class="text-gray-600 mb-4">A bustling hub with a great reputation. Known for its delicious food and fantastic coffee, this is a perfect mid-walk stop to recharge.</p>
+                <p class="text-gray-700 font-medium mb-4">Rating: 4.7 Stars</p>
+                <!-- Ayla Cafe doesn't have a specific website, so linking to their Google Maps page is a good alternative. -->
+                <a href="https://maps.app.goo.gl/uXvG7uB7HnE5f8p77" target="_blank" class="text-amber-500 hover:text-amber-600 font-semibold transition-colors duration-300">View Ayla's location &rarr;</a>
+            </div>
+
+            <!-- Card 3: Loki Coffee -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Loki Coffee</h3>
+                <p class="text-sm text-gray-500 mb-4">253 Beckenham Rd, BR3 4RP</p>
+                <p class="text-gray-600 mb-4">A stylish and modern cafe that’s new to the scene. Be one of the first to check out their unique approach to specialty coffee and fresh bakes.</p>
+                <p class="text-gray-700 font-medium mb-4">Rating: 4.9 Stars</p>
+                <!-- Loki Coffee doesn't have a specific website, so this is a placeholder link -->
+                <a href="#" class="text-amber-500 hover:text-amber-600 font-semibold transition-colors duration-300">More Info &rarr;</a>
+            </div>
+
+            <!-- Card 4: Shotsmiths -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Shotsmiths</h3>
+                <p class="text-sm text-gray-500 mb-4">73 Beckenham Rd, BR3 4PR</p>
+                <p class="text-gray-600 mb-4">A must-visit for the true coffee connoisseur. Shotsmiths is dedicated to the craft of coffee, making it the ideal spot to try something new and chat with the baristas.</p>
+                <p class="text-gray-700 font-medium mb-4">Rating: 4.7 Stars</p>
+                <a href="https://www.shotsmiths.com/" target="_blank" class="text-amber-500 hover:text-amber-600 font-semibold transition-colors duration-300">Visit Shotsmiths &rarr;</a>
+            </div>
+
+            <!-- Card 5: Josephine Kitchen -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Josephine Kitchen</h3>
+                <p class="text-sm text-gray-500 mb-4">324 Croydon Rd, BR3 4HR</p>
+                <p class="text-gray-600 mb-4">The perfect reward for completing your walk. This highly-rated spot offers a delicious selection of food and a relaxing atmosphere to reflect on your coffee journey.</p>
+                <p class="text-gray-700 font-medium mb-4">Rating: 5 Stars</p>
+                <a href="https://josephinekitchen.co.uk/" target="_blank" class="text-amber-500 hover:text-amber-600 font-semibold transition-colors duration-300">Visit Josephine Kitchen &rarr;</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-6 px-4 mt-12">
+        <p>&copy; 2025 South London Coffee Quest. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
